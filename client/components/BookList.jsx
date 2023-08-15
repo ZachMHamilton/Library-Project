@@ -4,7 +4,6 @@ import BookItem from './BookItem.jsx';
 const BookList = (props) => {
   // get books from props
   const { books } = props;
-
   // create array
   const booksRender = [];
   for (let i = 0; i < books.length; i++) {

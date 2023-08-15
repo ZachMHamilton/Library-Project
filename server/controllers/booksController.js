@@ -23,12 +23,18 @@ booksController.getBooks = (req, res, next) => {
 // WORKS
 booksController.addBook = (req, res, next) => {
   // add book here
-  models.Book.create(req.body)
+  // get details from locals obj
+  const { bookDetails } = res.locals;
+  console.log(bookDetails);
+
+  // create book in DB
+  models.Book.create(bookDetails)
     .then((data) => {
+      console.log('Book inserted:', data);
       return next();
     })
     .catch((err) => {
-      console.log('error', err);
+      console.error('Error inserting book:', err);
       return next(err);
     });
 };
@@ -46,6 +52,33 @@ booksController.deleteBook = (req, res, next) => {
     })
     .catch((err) => {
       console.log('error', err);
+      return next(err);
+    });
+};
+
+// WORKS
+booksController.getDetails = (req, res, next) => {
+  // get title and author from user input
+  const { title, author } = req.body;
+
+  // build url
+  const url = `https://www.googleapis.com/books/v1/volumes?q=intitle:"${title}"+inauthor:"${author}"&key=AIzaSyAXXHtUzz8RqMgLK-n-6qYqURB2X7c-rZM`;
+  // Fetch and process Google Books API data
+
+  // fetch from API
+  fetch(url, {
+    method: 'GET',
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // extract book details
+      const bookDetails = data.items[0].volumeInfo;
+      // add to locals to pass to next middleware
+      res.locals.bookDetails = bookDetails;
+      return next();
+    })
+    .catch((error) => {
+      console.error('Error fetching data:', error);
       return next(err);
     });
 };

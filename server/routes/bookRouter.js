@@ -12,14 +12,20 @@ router.get('/', booksController.getBooks, (req, res) => {
 });
 
 // POST - allows user to add a book
-router.post('/', booksController.addBook, (req, res) => {
-  // will update DB
-  return res.sendStatus(200);
-});
+router.post(
+  '/',
+  booksController.getDetails,
+  booksController.addBook,
+  (req, res) => {
+    // will update DB
+    return res.sendStatus(200);
+  }
+);
 
 // DELETE - allows user to delete a book
 router.delete('/:book', booksController.deleteBook, (req, res) => {
   // will update DB
   return res.sendStatus(200);
 });
+
 module.exports = router;
