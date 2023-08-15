@@ -6,6 +6,8 @@ const app = express();
 
 const bookRouter = require('./routes/bookRouter');
 
+const userRouter = require('./routes/UserRouter.js');
+
 const wishListRouter = require('./routes/wishListRouter');
 
 const PORT = 3000;
@@ -35,6 +37,8 @@ app.use(express.json());
 // invoke router when request made to /books
 app.use('/api/books', bookRouter);
 
+// invoke router when user logs in
+app.use('/login', userRouter);
 // invoke router when request made to /wishlist
 // app.use('/wishlist', wishListRouter);
 

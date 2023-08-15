@@ -25,12 +25,10 @@ booksController.addBook = (req, res, next) => {
   // add book here
   // get details from locals obj
   const { bookDetails } = res.locals;
-  console.log(bookDetails);
 
   // create book in DB
   models.Book.create(bookDetails)
     .then((data) => {
-      console.log('Book inserted:', data);
       return next();
     })
     .catch((err) => {
@@ -47,7 +45,6 @@ booksController.deleteBook = (req, res, next) => {
   // query request to db - select book that matches book from query parameter
   models.Book.deleteOne({ title: book })
     .then((data) => {
-      console.log(data);
       return next();
     })
     .catch((err) => {
@@ -77,8 +74,8 @@ booksController.getDetails = (req, res, next) => {
       res.locals.bookDetails = bookDetails;
       return next();
     })
-    .catch((error) => {
-      console.error('Error fetching data:', error);
+    .catch((err) => {
+      console.error('Error fetching data:', err);
       return next(err);
     });
 };

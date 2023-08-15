@@ -2,7 +2,16 @@ import React from 'react';
 
 const BookItem = (props) => {
   const { title } = props;
-  return <div id="book">{title}</div>;
+
+  const popup = () => {
+    window.alert(title);
+  };
+
+  return (
+    <div id="book" onClick={popup}>
+      {title}
+    </div>
+  );
 };
 
 export default BookItem;
