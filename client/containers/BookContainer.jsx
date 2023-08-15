@@ -22,36 +22,20 @@ const BooksContainer = () => {
   };
 
   // fetch data from backend to display on frontend
-  // const getBooks = async () => {
-  //   try {
-  //     const response = await fetch('../api/books/', {
-  //       method: 'GET',
-  //     });
-  //     // Parse the response to get the data
-  //     const data = await response.json();
-  //     // Store the data in the state
-  //     setBooks(data);
-  //   } catch (error) {
-  //     console.error('Error fetching data:', error);
-  //   }
-  // };
+  fetch('../api/books/', {
+    method: 'GET',
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      setBooks(data);
+    })
+    .catch((error) => {
+      console.error('Error fetching data:', error);
+    });
 
-  useEffect(() => {
-    const getBooks = async () => {
-      try {
-        const response = await fetch('../api/books/', {
-          method: 'GET',
-        });
-        const data = await response.json();
-        setBooks(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    // Call the getBooks function to fetch and update the books state
-    getBooks();
-  }, []); // Empty dependency array means this effect runs once after the component mounts
+  // useEffect(() => {
+  //   // Call the getBooks function to fetch and update the books state
+  // }, []); // Empty dependency array means this effect runs once after the component mounts
 
   // pass down via props to BookList
 
