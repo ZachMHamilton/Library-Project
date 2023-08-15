@@ -7,57 +7,62 @@ const BooksContainer = () => {
   const [author, setAuthor] = useState('');
   const [books, setBooks] = useState('');
 
-  // handle click to add book
-  // make fetch request to backend
-  // get request
-  const handleClick = async () => {
-    const response = await fetch('../api/books/', {
+  const handleClick = () => {
+    fetch('../api/books/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         title: title,
         author: author,
       }),
-    });
+    })
+      .then(() => {
+        getBooks();
+      })
+      .catch((error) => {
+        console.error('Error adding book:', error);
+      });
   };
 
   // fetch data from backend to display on frontend
-  fetch('../api/books/', {
-    method: 'GET',
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      setBooks(data);
+  const getBooks = () => {
+    fetch('../api/books/', {
+      method: 'GET',
     })
-    .catch((error) => {
-      console.error('Error fetching data:', error);
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        setBooks(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  };
+
+  getBooks();
 
   // useEffect(() => {
-  //   // Call the getBooks function to fetch and update the books state
-  // }, []); // Empty dependency array means this effect runs once after the component mounts
-
-  // pass down via props to BookList
+  //   getBooks();
+  // }, []);
 
   return (
     <div id="booksContainer">
       <h2>My Library</h2>
       <form>
-        <label for="title">Title: </label>
+        <label htmlFor="title">Title: </label>
         <input
           type="text"
           value={title}
           name="title"
           onChange={(e) => setTitle(e.target.value)}
         ></input>
-        <label for="author">Author: </label>
+        <label htmlFor="author">Author: </label>
         <input
           type="text"
           value={author}
           name="author"
           onChange={(e) => setAuthor(e.target.value)}
         ></input>
-        <button onClick={handleClick}>Add Book</button>
+        <button onClick={() => handleClick()}>Add Book</button>
       </form>
       <BookList books={books} />
     </div>

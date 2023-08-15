@@ -4,11 +4,13 @@ const express = require('express');
 
 const app = express();
 
+const cors = require('cors');
+
 const bookRouter = require('./routes/bookRouter');
 
-const userRouter = require('./routes/UserRouter.js');
+// const userRouter = require('./routes/UserRouter.js');
 
-const wishListRouter = require('./routes/wishListRouter');
+// const wishListRouter = require('./routes/wishListRouter');
 
 const PORT = 3000;
 
@@ -29,16 +31,14 @@ mongoose
   .then(() => console.log('Connected to Mongo DB.'))
   .catch((err) => console.log(err));
 
-// parser to get data from body
+app.use(cors());
 app.use(express.json());
 
-// serve static files
+// app.use('/client', express.static(path.resolve(__dirname, '../client')));
 
 // invoke router when request made to /books
 app.use('/api/books', bookRouter);
 
-// invoke router when user logs in
-app.use('/login', userRouter);
 // invoke router when request made to /wishlist
 // app.use('/wishlist', wishListRouter);
 
