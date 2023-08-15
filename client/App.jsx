@@ -1,7 +1,12 @@
 import React from 'react';
+import MainContainer from './containers/MainContainer.jsx';
 
 const App = () => {
-  return <h1>Library</h1>;
+  return (
+    <div>
+      <MainContainer />
+    </div>
+  );
 };
 
 export default App;
