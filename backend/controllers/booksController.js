@@ -10,6 +10,7 @@ booksController.getBooks = (req, res, next) => {
 booksController.addBook = (req, res, next) => {
   // add book here
   // needs to match current user
+  // use Google Books API to pull data instead of having user type it all in
   // INSERT INTO books
 }
 booksController.deleteBook = (req, res, next) => {

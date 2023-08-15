@@ -1,0 +1,2 @@
+On load, should be login page
+Upon successfully login, get request to /books and redirect to home page

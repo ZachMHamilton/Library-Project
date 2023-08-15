@@ -22,6 +22,7 @@ app.use('/books', bookRouter);
 app.use('/wishlist', wishListRouter);
 
 // global route handler
+app.use('/*', (req, res) => res.status(400));
 
 // global error handler
 app.use((err, req, res, next) => {
