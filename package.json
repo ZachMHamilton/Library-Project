@@ -3,15 +3,17 @@
     "@prisma/client": "^5.1.1",
     "express": "^4.18.2",
     "mongodb": "^5.7.0",
+    "mongoose": "^7.4.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "name": "library-project",
   "description": "Library project",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
   },
   "author": "Zach Hamilton",
   "license": "ISC"
