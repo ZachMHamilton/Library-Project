@@ -22,9 +22,7 @@ booksController.getBooks = (req, res, next) => {
 
 // WORKS
 booksController.addBook = (req, res, next) => {
-  console.log('here');
   // add book here
-  console.log(req.body);
   models.Book.create(req.body)
     .then((data) => {
       return next();
@@ -40,7 +38,6 @@ booksController.deleteBook = (req, res, next) => {
   // delete book here
   // get book from query parameter
   const { book } = req.params;
-  console.log(book);
   // query request to db - select book that matches book from query parameter
   models.Book.deleteOne({ title: book })
     .then((data) => {
