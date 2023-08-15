@@ -8,7 +8,7 @@ const router = express.Router();
 // GET - retrieves all books in a users library
 router.get('/', booksController.getBooks, (req, res) => {
   // will send data back to client
-  return res.sendStatus(200);
+  return res.status(200).json(res.locals.books);
 });
 
 // POST - allows user to add a book
@@ -18,8 +18,8 @@ router.post('/', booksController.addBook, (req, res) => {
 });
 
 // DELETE - allows user to delete a book
-// router.delete('/:book', booksController.deleteBook, (req, res) => {
-//   // will update DB
-//   // rerender page with updated list
-// });
+router.delete('/:book', booksController.deleteBook, (req, res) => {
+  // will update DB
+  return res.sendStatus(200);
+});
 module.exports = router;

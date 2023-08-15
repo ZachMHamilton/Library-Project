@@ -3,14 +3,16 @@ const models = require('../models/booksModel');
 
 const booksController = {};
 
-const mongoose = require('mongoose');
+// ALL NEED TO ALSO CHECK THE USER MATCHES!!!
 
+// WORKS
 booksController.getBooks = (req, res, next) => {
   console.log('here1');
   // get all user books from DB here
   models.Book.find()
     .then((data) => {
-      console.log(data);
+      // add data to locals
+      res.locals.books = data;
       return next();
     })
     .catch((err) => {
@@ -19,10 +21,27 @@ booksController.getBooks = (req, res, next) => {
     });
 };
 
+// WORKS
 booksController.addBook = (req, res, next) => {
   // add book here
-  console.log(req.body);
   models.Book.create(req.body)
+    .then((data) => {
+      return next();
+    })
+    .catch((err) => {
+      console.log('error', err);
+      return next(err);
+    });
+};
+
+// WORKS
+booksController.deleteBook = (req, res, next) => {
+  // delete book here
+  // get book from query parameter
+  const { book } = req.params;
+  console.log(book);
+  // query request to db - select book that matches book from query parameter
+  models.Book.deleteOne({ title: book })
     .then((data) => {
       console.log(data);
       return next();
@@ -32,11 +51,5 @@ booksController.addBook = (req, res, next) => {
       return next(err);
     });
 };
-// booksController.deleteBook = (req, res, next) => {
-//   // delete book here
-//   // query request to db - select book that matches book from query parameter
-//   // needs to match current user
-//   // DELETE FROM books WHERE
-// };
 
 module.exports = booksController;
