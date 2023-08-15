@@ -5,7 +5,9 @@
     "mongodb": "^5.7.0",
     "mongoose": "^7.4.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.2",
+    "redux": "^4.2.1"
   },
   "name": "library-project",
   "description": "Library project",
@@ -13,6 +15,7 @@
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon",
     "dev": "webpack serve --open"
   },
   "author": "Zach Hamilton",

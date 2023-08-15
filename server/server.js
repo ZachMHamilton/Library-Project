@@ -33,7 +33,7 @@ app.use(express.json());
 // serve static files
 
 // invoke router when request made to /books
-app.use('/books', bookRouter);
+app.use('/api/books', bookRouter);
 
 // invoke router when request made to /wishlist
 // app.use('/wishlist', wishListRouter);

@@ -43,8 +43,8 @@ module.exports = {
       publicPath: '/',
     },
 
-    // proxy: {
-    //   '/api/leaders': 'http://localhost:3000/api/leaders',
-    // },
+    proxy: {
+      '/api': 'http://localhost:3000/',
+    },
   },
 };

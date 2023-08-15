@@ -7,7 +7,6 @@ const booksController = {};
 
 // WORKS
 booksController.getBooks = (req, res, next) => {
-  console.log('here1');
   // get all user books from DB here
   models.Book.find()
     .then((data) => {
@@ -23,7 +22,9 @@ booksController.getBooks = (req, res, next) => {
 
 // WORKS
 booksController.addBook = (req, res, next) => {
+  console.log('here');
   // add book here
+  console.log(req.body);
   models.Book.create(req.body)
     .then((data) => {
       return next();

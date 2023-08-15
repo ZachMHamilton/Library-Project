@@ -1,0 +1,47 @@
+body {
+  margin: 0px;
+}
+
+#mainContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+}
+
+#booksContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px;
+  width: 45%;
+  text-align: center;
+}
+
+#bookList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 2;
+  border: 1px solid black;
+  margin: 10px;
+  height: 100%;
+  padding: 0.5px;
+}
+
+#book {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  writing-mode: vertical-rl;
+  text-align: center;
+  width: 5%;
+  max-height: 20%;
+  margin: 0.5px;
+}
+
+button {
+  width: 20%;
+  align-self: center;
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 
-const BookItem = () => {
-  return <h3>Book Item</h3>;
+const BookItem = (props) => {
+  const { title } = props;
+  return <div id="book">{title}</div>;
 };
 
 export default BookItem;

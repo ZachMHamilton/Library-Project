@@ -3,8 +3,7 @@ import BooksContainer from './BookContainer.jsx';
 
 const MainContainer = () => {
   return (
-    <div>
-      <h1>Main Container</h1>
+    <div id="mainContainer">
       <BooksContainer />
     </div>
   );
