@@ -13,7 +13,8 @@ body {
   flex-direction: row;
   justify-content: center;
   height: 100vh;
-  background-color: rgb(187, 251, 230);
+  background-image: url('./assets/room1.png');
+  background-size: cover;
 }
 
 #booksContainer {
@@ -31,11 +32,13 @@ body {
   flex-wrap: wrap;
   align-content: flex-start;
   border: 1px solid gray;
-  background-color: white;
+  background-image: url(./assets/bookshelf.jpeg);
+  background-size: cover;
   border-radius: 5px;
+  row-gap: 20px;
   margin: 10px;
   height: 600px;
-  padding: 0.5px;
+  padding: 20px;
 }
 
 #book {
@@ -46,11 +49,11 @@ body {
   border-radius: 5px;
   writing-mode: vertical-rl;
   text-align: center;
-  width: 49.4px;
-  height: 197px;
+  width: 50.5px;
+  height: 118px;
   margin: 0.5px;
-  row-gap: 0px;
   cursor: default;
+  background-color: white;
 }
 
 #login {
