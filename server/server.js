@@ -8,7 +8,7 @@ const cors = require('cors');
 
 const bookRouter = require('./routes/bookRouter');
 
-// const userRouter = require('./routes/UserRouter.js');
+const userRouter = require('./routes/userRouter');
 
 // const wishListRouter = require('./routes/wishListRouter');
 
@@ -39,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 // invoke router when request made to /books
 app.use('/api/books', bookRouter);
 
+app.use('/api/users', userRouter);
 // invoke router when request made to /wishlist
 // app.use('/wishlist', wishListRouter);
 // global route handler
