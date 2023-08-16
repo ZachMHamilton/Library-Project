@@ -6,8 +6,6 @@ const Login = ({ logIn }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(username);
-    console.log(password);
     fetch('../api/users/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

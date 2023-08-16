@@ -1,2 +1,4 @@
-On load, should be login page
-Upon successfully login, get request to /books and redirect to home page
+when user is created
+set user id
+when loading books pull user id
+search for their books

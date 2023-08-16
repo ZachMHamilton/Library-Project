@@ -4,7 +4,6 @@ const cookieController = {};
 
 cookieController.setSSIDCookie = (req, res, next) => {
   const { username } = req.body;
-  console.log(username);
   models.User.findOne({ username: username })
     .then((obj) => {
       if (obj) {
