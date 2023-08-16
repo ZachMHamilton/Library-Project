@@ -9,8 +9,9 @@ import {
 } from 'react-router-dom';
 
 const App = () => {
-  const [isLoggedIn, logIn] = useState(false);
+  // const [isLoggedIn, logIn] = useState(false);
   // const isLoggedIn = false;
+  const isLoggedIn = true;
   return (
     <Router>
       <div>
@@ -29,7 +30,7 @@ const App = () => {
             path="/login"
             element={
               !isLoggedIn ? (
-                <Login logIn={logIn} />
+                <Login logIn={'logIn'} />
               ) : (
                 <Navigate replace to={'/'} />
               )

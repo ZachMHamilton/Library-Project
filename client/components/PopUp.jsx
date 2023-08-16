@@ -2,12 +2,13 @@ import React from 'react';
 import { Modal, Box, Button } from '@mui/material';
 
 const PopUp = ({ open, close, title, bookDetails }) => {
+  const img = bookDetails.imageLinks.smallThumbnail;
   return (
     <Modal open={open} onClose={close}>
       <Box
         sx={{
           p: 2,
-          height: 300,
+          height: 470,
           width: 300,
           border: '1px solid black',
           position: 'absolute',
@@ -26,6 +27,7 @@ const PopUp = ({ open, close, title, bookDetails }) => {
       >
         <h2>{title}</h2>
         <h3>Author: {bookDetails.authors[0]}</h3>
+        <img src={img} />
         <p>Genre: {bookDetails.categories[0]}</p>
         <p>Page Count: {bookDetails.pageCount}</p>
         <Button variant="outlined" onClick={close}>

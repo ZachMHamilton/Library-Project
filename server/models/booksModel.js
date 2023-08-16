@@ -8,6 +8,7 @@ const bookSchema = new Schema({
   description: String,
   pageCount: Number,
   categories: Array,
+  imageLinks: Object,
   //user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
 });
 
