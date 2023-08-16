@@ -8,6 +8,7 @@ const BooksContainer = () => {
   const [author, setAuthor] = useState('');
   const [books, setBooks] = useState('');
 
+  // make post request when add book is created
   const handleClick = (e) => {
     e.preventDefault();
     fetch('../api/books/', {
@@ -18,15 +19,18 @@ const BooksContainer = () => {
         author,
       }),
     })
+      // update state
       .then((response) => response.json())
       .then((newBook) => {
         setBooks((prevBooks) => [...prevBooks, newBook]);
       })
+      // erros
       .catch((error) => {
         console.error('Error adding book:', error);
       });
   };
 
+  // make delete request when delete button is clicked
   const deleteBook = (e) => {
     fetch('../api/books', {
       method: 'DELETE',
@@ -35,12 +39,14 @@ const BooksContainer = () => {
         title,
       }),
     })
+      // call getBooks to update screen
       .then((response) => {
         console.log('deleted successfully');
         getBooks();
       })
+      // err
       .catch((err) => {
-        console.log('err in container', err);
+        console.log('err in deleteBook', err);
       });
   };
 
@@ -58,10 +64,12 @@ const BooksContainer = () => {
       });
   };
 
+  // render books on initial load
   useEffect(() => {
     getBooks();
   }, []);
 
+  // Material UI form
   return (
     <div id="booksContainer">
       <h2>My Library</h2>

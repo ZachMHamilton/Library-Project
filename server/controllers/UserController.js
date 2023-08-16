@@ -10,7 +10,7 @@ userController.verifyUser = (req, res, next) => {
     .then((obj) => {
       // if it doesnt match
       if (!obj || password !== obj.password) {
-        // alert user
+        // something
         console.log('password does not match');
       } else {
         return next();
@@ -23,10 +23,10 @@ userController.verifyUser = (req, res, next) => {
 };
 
 userController.createUser = (req, res, next) => {
+  // get username/password
   const { username, password } = req.body;
   models.User.create(req.body)
     .then((data) => {
-      console.log(data);
       return next();
     })
     .catch((err) => {

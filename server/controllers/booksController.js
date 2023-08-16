@@ -42,9 +42,9 @@ booksController.addBook = (req, res, next) => {
 // WORKS
 booksController.deleteBook = (req, res, next) => {
   // delete book here
-  // get book from query parameter
+  // get book from req.body
   const { title } = req.body;
-  // query request to db - select book that matches book from query parameter
+  // to db - select book that matches book from body
   models.Book.deleteOne({ title: title })
     .then((data) => {
       return next();
@@ -60,11 +60,11 @@ booksController.getDetails = (req, res, next) => {
   // get title and author from user input
   const { title, author } = req.body;
 
-  // build url
+  // build url using title and author
   const url = `https://www.googleapis.com/books/v1/volumes?q=intitle:"${title}"+inauthor:"${author}"&key=AIzaSyAXXHtUzz8RqMgLK-n-6qYqURB2X7c-rZM`;
-  // Fetch and process Google Books API data
+  
 
-  // fetch from API
+  // fetch from Google Books API
   fetch(url, {
     method: 'GET',
   })
@@ -72,7 +72,6 @@ booksController.getDetails = (req, res, next) => {
     .then((data) => {
       // extract book details
       const bookDetails = data.items[0].volumeInfo;
-      console.log(bookDetails);
       // add to locals to pass to next middleware
       res.locals.bookDetails = bookDetails;
       return next();

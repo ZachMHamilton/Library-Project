@@ -17,14 +17,13 @@ router.post(
   booksController.getDetails,
   booksController.addBook,
   (req, res) => {
-    // will update DB
+    // send back new book
     return res.status(200).json(res.locals.newBook);
   }
 );
 
 // DELETE - allows user to delete a book
 router.delete('/', booksController.deleteBook, (req, res) => {
-  // will update DB
   return res.sendStatus(200);
 });
 

@@ -6,8 +6,9 @@ const BookList = (props) => {
   const { books, deleteBook } = props;
   // create array
   const booksRender = [];
+  // create component for each book
   for (let i = 0; i < books.length; i++) {
-    // pass title down to bookItem to be displayed
+    // pass down stuff to each item via props
     booksRender.push(
       <BookItem
         key={i}

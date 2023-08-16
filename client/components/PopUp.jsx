@@ -2,25 +2,10 @@ import React, { useState } from 'react';
 import { Modal, Box, Button } from '@mui/material';
 
 const PopUp = ({ open, close, title, bookDetails, deleteBook }) => {
+  // var to store img of each book
   const img = bookDetails.imageLinks.smallThumbnail;
-  // const [deletedBook, deleteFunc] = useState('');
 
-  // const deleteBook = (e) => {
-  //   fetch('../api/books', {
-  //     method: 'DELETE',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({
-  //       title,
-  //     }),
-  //   })
-  //     .then((response) => {
-  //       console.log('deleted successfully');
-  //     })
-  //     .catch((err) => {
-  //       console.log('err in container', err);
-  //     });
-  // };
-
+  // Material UI modal
   return (
     <Modal open={open} onClose={close}>
       <Box

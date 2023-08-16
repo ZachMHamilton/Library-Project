@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { TextField, Box, Button } from '@mui/material';
 
 const Login = ({ logIn }) => {
+  // create state vars
   const [username, setUser] = useState();
   const [password, setPassword] = useState();
 
+  // make post request when users log in
   const handleLogin = (e) => {
-    // e.preventDefault();
     fetch('../api/users/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -15,15 +16,18 @@ const Login = ({ logIn }) => {
         password,
       }),
     })
+      // modify state (in APP) to set isLoggedIn to true
       .then((response) => {
         logIn(true);
       })
+      // errors
       .catch((err) => {
         console.log('error logging in');
         console.log(err);
       });
   };
 
+  // Material UI form
   return (
     <div id="login">
       <Box

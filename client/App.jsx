@@ -9,8 +9,13 @@ import {
 } from 'react-router-dom';
 
 const App = () => {
+  // state to keep track of login
   const [isLoggedIn, logIn] = useState(false);
-  // const isLoggedIn = false;
+
+  // react router
+  // using conditional routing
+  // '/' if isLoggedIn = true: render MainContainer; else: navigate to login
+  // '/login' if isLoggedIn = false: render login page; else: navigate to home page '/'
   return (
     <Router>
       <div>
