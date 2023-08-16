@@ -30,6 +30,7 @@ booksController.addBook = (req, res, next) => {
   // create book in DB
   models.Book.create(bookDetails)
     .then((data) => {
+      res.locals.newBook = data;
       return next();
     })
     .catch((err) => {

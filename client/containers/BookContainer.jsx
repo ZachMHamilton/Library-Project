@@ -7,17 +7,19 @@ const BooksContainer = () => {
   const [author, setAuthor] = useState('');
   const [books, setBooks] = useState('');
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     fetch('../api/books/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        title: title,
-        author: author,
+        title,
+        author,
       }),
     })
-      .then(() => {
-        getBooks();
+      .then((response) => response.json())
+      .then((newBook) => {
+        setBooks((prevBooks) => [...prevBooks, newBook]);
       })
       .catch((error) => {
         console.error('Error adding book:', error);
@@ -31,6 +33,7 @@ const BooksContainer = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setBooks(data);
       })
       .catch((error) => {
@@ -38,11 +41,9 @@ const BooksContainer = () => {
       });
   };
 
-  getBooks();
-
-  // useEffect(() => {
-  //   getBooks();
-  // }, []);
+  useEffect(() => {
+    getBooks();
+  }, []);
 
   return (
     <div id="booksContainer">
@@ -62,7 +63,7 @@ const BooksContainer = () => {
           name="author"
           onChange={(e) => setAuthor(e.target.value)}
         ></input>
-        <button onClick={() => handleClick()}>Add Book</button>
+        <button onClick={(e) => handleClick(e)}>Add Book</button>
       </form>
       <BookList books={books} />
     </div>
