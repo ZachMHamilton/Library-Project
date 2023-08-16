@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PopUp from './PopUp.jsx';
 
 const BookItem = (props) => {
   const { title, bookDetails } = props;
-  console.log(bookDetails);
+  const [open, openModal] = useState(false);
+
   const popup = () => {
-    window.alert(title);
+    console.log('clicked');
+    openModal(true);
+  };
+
+  const closePopup = () => {
+    openModal(false);
   };
 
   return (
-    <div id="book" onClick={popup}>
-      {title}
+    <div>
+      <div id="book" onClick={popup}>
+        {title}
+      </div>
+      <PopUp
+        title={title}
+        bookDetails={bookDetails}
+        open={open}
+        close={closePopup}
+      />
     </div>
   );
 };

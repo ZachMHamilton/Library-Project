@@ -9,8 +9,8 @@ import {
 } from 'react-router-dom';
 
 const App = () => {
-  const [isLoggedIn, logIn] = useState(false);
-
+  //const [isLoggedIn, logIn] = useState(false);
+  const isLoggedIn = true;
   return (
     <Router>
       <div>

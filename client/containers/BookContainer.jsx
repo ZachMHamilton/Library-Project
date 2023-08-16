@@ -33,7 +33,6 @@ const BooksContainer = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setBooks(data);
       })
       .catch((error) => {
