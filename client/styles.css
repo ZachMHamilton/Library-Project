@@ -13,6 +13,7 @@ body {
   flex-direction: row;
   justify-content: center;
   height: 100vh;
+  background-color: rgb(187, 251, 230);
 }
 
 #booksContainer {
@@ -29,7 +30,9 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
-  border: 1px solid black;
+  border: 1px solid gray;
+  background-color: white;
+  border-radius: 5px;
   margin: 10px;
   height: 600px;
   padding: 0.5px;
@@ -39,7 +42,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid gray;
+  border-radius: 5px;
   writing-mode: vertical-rl;
   text-align: center;
   width: 49.4px;
@@ -67,4 +71,8 @@ body {
   gap: 30px;
   height: 600px;
   width: 400px;
+}
+
+.MuiInputBase-input {
+  background: beige;
 }

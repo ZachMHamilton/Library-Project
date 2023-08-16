@@ -15,7 +15,7 @@ const BookItem = (props) => {
   };
 
   return (
-    <div>
+    <div id="randomColor">
       <div id="book" onClick={popup}>
         {title}
       </div>

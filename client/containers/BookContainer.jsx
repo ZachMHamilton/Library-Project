@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import BookList from '../components/BookList.jsx';
+import { TextField, Box, Button } from '@mui/material';
 
 const BooksContainer = () => {
   // create state variables
@@ -47,23 +48,44 @@ const BooksContainer = () => {
   return (
     <div id="booksContainer">
       <h2>My Library</h2>
-      <form>
-        <label htmlFor="title">Title: </label>
-        <input
+      <Box
+        component="form"
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 2,
+        }}
+      >
+        <TextField
+          id="outlined-basic"
+          label="Title"
+          variant="outlined"
           type="text"
           value={title}
           name="title"
+          size="small"
           onChange={(e) => setTitle(e.target.value)}
-        ></input>
-        <label htmlFor="author">Author: </label>
-        <input
+        />
+        <TextField
+          id="outlined-basic"
+          label="Author"
+          variant="outlined"
           type="text"
           value={author}
           name="author"
+          size="small"
           onChange={(e) => setAuthor(e.target.value)}
-        ></input>
-        <button onClick={(e) => handleClick(e)}>Add Book</button>
-      </form>
+        />
+        <Button
+          onClick={(e) => handleClick(e)}
+          variant="contained"
+          size="small"
+        >
+          Add Book
+        </Button>
+      </Box>
       <BookList books={books} />
     </div>
   );
