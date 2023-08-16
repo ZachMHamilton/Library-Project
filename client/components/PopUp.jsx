@@ -1,14 +1,14 @@
 import React from 'react';
 import { Modal, Box, Button } from '@mui/material';
 
-const PopUp = ({ open, close, title }) => {
+const PopUp = ({ open, close, title, bookDetails }) => {
   return (
     <Modal open={open} onClose={close}>
       <Box
         sx={{
           p: 2,
-          height: 500,
-          width: 500,
+          height: 300,
+          width: 300,
           border: '1px solid black',
           position: 'absolute',
           top: '50%',
@@ -16,7 +16,7 @@ const PopUp = ({ open, close, title }) => {
           transform: 'translate(-50%, -50%)',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
           flexDirection: 'column',
           bgcolor: 'white',
           boxShadow: 24,
@@ -25,7 +25,9 @@ const PopUp = ({ open, close, title }) => {
         }}
       >
         <h2>{title}</h2>
-        <p>Description</p>
+        <h3>Author: {bookDetails.authors[0]}</h3>
+        <p>Genre: {bookDetails.categories[0]}</p>
+        <p>Page Count: {bookDetails.pageCount}</p>
         <Button variant="outlined" onClick={close}>
           Close
         </Button>

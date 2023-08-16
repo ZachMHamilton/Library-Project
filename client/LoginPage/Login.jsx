@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { TextField, Box, Button } from '@mui/material';
 
 const Login = ({ logIn }) => {
   const [username, setUser] = useState();
   const [password, setPassword] = useState();
 
   const handleLogin = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     fetch('../api/users/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -19,21 +20,54 @@ const Login = ({ logIn }) => {
       })
       .catch((err) => {
         console.log('error logging in');
+        console.log(err);
       });
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <div>
-        <label>Username:</label>
-        <input type="text" onChange={(e) => setUser(e.target.value)} />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" onChange={(e) => setPassword(e.target.value)} />
-      </div>
-      <button onClick={(e) => handleLogin(e)}>Login</button>
+    <div id="login">
+      <Box
+        component="form"
+        sx={{
+          border: '1px solid lightgrey',
+          borderRadius: 2,
+          p: 5,
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+          bgcolor: 'white',
+        }}
+      >
+        <h2 style={{ textAlign: 'center' }}>LOGIN</h2>
+        <TextField
+          id="outlined-basic"
+          label="Username"
+          variant="outlined"
+          sx={{
+            width: 400,
+          }}
+          type="text"
+          onChange={(e) => setUser(e.target.value)}
+        />
+        <TextField
+          id="outlined-basic"
+          label="Password"
+          variant="outlined"
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button
+          onClick={(e) => handleLogin(e)}
+          variant="contained"
+          sx={{ mt: 3, mb: 2 }}
+        >
+          Sign In
+        </Button>
+      </Box>
     </div>
   );
 };

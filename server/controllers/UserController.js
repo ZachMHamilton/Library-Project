@@ -17,6 +17,7 @@ userController.verifyUser = (req, res, next) => {
       }
     })
     .catch((err) => {
+      console.log('err in verify', err);
       return next(err);
     });
 };

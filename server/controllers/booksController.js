@@ -72,6 +72,7 @@ booksController.getDetails = (req, res, next) => {
     .then((data) => {
       // extract book details
       const bookDetails = data.items[0].volumeInfo;
+      console.log(bookDetails);
       // add to locals to pass to next middleware
       res.locals.bookDetails = bookDetails;
       return next();

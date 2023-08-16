@@ -13,7 +13,7 @@ cookieController.setSSIDCookie = (req, res, next) => {
       }
     })
     .catch((err) => {
-      console.log('error in cooke:', err);
+      console.log('error in cookie:', err);
       return next(err);
     });
 };
