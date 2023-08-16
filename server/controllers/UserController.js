@@ -5,6 +5,8 @@ const userController = {};
 userController.verifyUser = (req, res, next) => {
   // pull data from body
   const { username, password } = req.body;
+  console.log(username);
+  console.log(password);
   // find matching user
   models.User.findOne({ username: username })
     .then((obj) => {

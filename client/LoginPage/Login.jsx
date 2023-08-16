@@ -6,21 +6,22 @@ const Login = ({ logIn }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // fetch('../api/users/login', {
-    //   type: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({
-    //     username,
-    //     password,
-    //   }),
-    // })
-    //   .then((response) => {
-    //     console.log('response recieved');
-    //   })
-    //   .catch((err) => {
-    //     console.log('error logging in');
-    //   });
-    logIn(true);
+    console.log(username);
+    console.log(password);
+    fetch('../api/users/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+    })
+      .then((response) => {
+        logIn(true);
+      })
+      .catch((err) => {
+        console.log('error logging in');
+      });
   };
 
   return (
