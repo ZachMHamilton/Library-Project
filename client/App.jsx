@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MainContainer from './containers/MainContainer.jsx';
 import Login from './LoginPage/Login.jsx';
 import {
@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 
 const App = () => {
-  const loggedIn = false;
+  const [isLoggedIn, logIn] = useState(false);
 
   return (
     <Router>
@@ -18,12 +18,16 @@ const App = () => {
           <Route
             path="/"
             element={
-              loggedIn ? <MainContainer /> : <Navigate replace to={'/login'} />
+              isLoggedIn ? (
+                <MainContainer />
+              ) : (
+                <Navigate replace to={'/login'} />
+              )
             }
           />
           <Route
             path="/login"
-            element={!loggedIn ? <Login /> : <Navigate replace to={'/'} />}
+            element={!isLoggedIn ? <Login /> : <Navigate replace to={'/'} />}
           />
         </Routes>
       </div>
