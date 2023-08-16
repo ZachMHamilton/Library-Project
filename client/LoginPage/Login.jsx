@@ -60,13 +60,22 @@ const Login = ({ logIn }) => {
           type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button
-          onClick={(e) => handleLogin(e)}
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-        >
-          Sign In
-        </Button>
+        <div id="loginButtons">
+          <Button
+            onClick={(e) => handleLogin(e)}
+            variant="contained"
+            sx={{ mt: 3, mb: 2, width: 150 }}
+          >
+            Sign In
+          </Button>
+          <Button
+            onClick={(e) => handleLogin(e)}
+            variant="outlined"
+            sx={{ mt: 3, mb: 2, width: 150 }}
+          >
+            Sign Up
+          </Button>
+        </div>
       </Box>
     </div>
   );

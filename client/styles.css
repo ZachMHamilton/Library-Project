@@ -31,7 +31,6 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
-  border: 1px solid gray;
   background-image: url(./assets/bookshelf.jpeg);
   background-size: cover;
   border-radius: 5px;
@@ -62,7 +61,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: aquamarine;
+  background-image: url('./assets/room1.png');
+  background-size: cover;
 }
 
 #formcontainer {
@@ -70,7 +70,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
   gap: 30px;
   height: 600px;
   width: 400px;
@@ -80,4 +79,11 @@ body {
   display: flex;
   flex-direction: row;
   gap: 20px;
+}
+
+#loginButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
 }
