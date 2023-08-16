@@ -41,12 +41,7 @@ app.use('/api/books', bookRouter);
 
 // invoke router when request made to /wishlist
 // app.use('/wishlist', wishListRouter);
-
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, './client/build', 'index.html'));
-});
 // global route handler
-// app.use('/*', (req, res) => res.status(400));
 
 // global error handler
 app.use((err, req, res, next) => {

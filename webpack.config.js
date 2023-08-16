@@ -38,11 +38,12 @@ module.exports = {
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, 'build'),
+      directory: path.join(__dirname),
       publicPath: '/',
     },
     proxy: {
-      '/api': 'http://localhost:3000/',
+      '/api': 'http://localhost:3000',
     },
+    historyApiFallback: true,
   },
 };
