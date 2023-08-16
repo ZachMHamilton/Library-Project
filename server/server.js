@@ -34,7 +34,7 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
-// app.use('/client', express.static(path.resolve(__dirname, '../client')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // invoke router when request made to /books
 app.use('/api/books', bookRouter);
@@ -42,6 +42,9 @@ app.use('/api/books', bookRouter);
 // invoke router when request made to /wishlist
 // app.use('/wishlist', wishListRouter);
 
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, './client/build', 'index.html'));
+});
 // global route handler
 // app.use('/*', (req, res) => res.status(400));
 

@@ -6,6 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   mode: 'development',
   module: {
@@ -25,7 +26,7 @@ module.exports = {
       {
         test: [/\.s[ac]ss$/i, /\.css$/i],
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
@@ -36,13 +37,10 @@ module.exports = {
     }),
   ],
   devServer: {
-    // tells devServer WHEERE to serve (publicPath)
-    //static: path.join(__dirname),
     static: {
-      directory: path.join(__dirname),
+      directory: path.join(__dirname, 'build'),
       publicPath: '/',
     },
-
     proxy: {
       '/api': 'http://localhost:3000/',
     },
