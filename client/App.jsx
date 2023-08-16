@@ -27,7 +27,13 @@ const App = () => {
           />
           <Route
             path="/login"
-            element={!isLoggedIn ? <Login /> : <Navigate replace to={'/'} />}
+            element={
+              !isLoggedIn ? (
+                <Login logIn={logIn} />
+              ) : (
+                <Navigate replace to={'/'} />
+              )
+            }
           />
         </Routes>
       </div>
