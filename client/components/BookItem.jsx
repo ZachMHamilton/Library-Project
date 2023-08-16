@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PopUp from './PopUp.jsx';
 
 const BookItem = (props) => {
-  const { title, bookDetails } = props;
+  const { title, bookDetails, deleteBook } = props;
   const [open, openModal] = useState(false);
 
   const popup = () => {
@@ -24,6 +24,7 @@ const BookItem = (props) => {
         bookDetails={bookDetails}
         open={open}
         close={closePopup}
+        deleteBook={deleteBook}
       />
     </div>
   );

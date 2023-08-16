@@ -23,7 +23,7 @@ router.post(
 );
 
 // DELETE - allows user to delete a book
-router.delete('/:book', booksController.deleteBook, (req, res) => {
+router.delete('/', booksController.deleteBook, (req, res) => {
   // will update DB
   return res.sendStatus(200);
 });

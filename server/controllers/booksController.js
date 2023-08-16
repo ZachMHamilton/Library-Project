@@ -43,9 +43,9 @@ booksController.addBook = (req, res, next) => {
 booksController.deleteBook = (req, res, next) => {
   // delete book here
   // get book from query parameter
-  const { book } = req.params;
+  const { title } = req.body;
   // query request to db - select book that matches book from query parameter
-  models.Book.deleteOne({ title: book })
+  models.Book.deleteOne({ title: title })
     .then((data) => {
       return next();
     })

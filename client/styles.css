@@ -73,6 +73,8 @@ body {
   width: 400px;
 }
 
-.MuiInputBase-input {
-  background: beige;
+#popupButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }

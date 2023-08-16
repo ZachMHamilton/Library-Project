@@ -27,6 +27,23 @@ const BooksContainer = () => {
       });
   };
 
+  const deleteBook = (e) => {
+    fetch('../api/books', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title,
+      }),
+    })
+      .then((response) => {
+        console.log('deleted successfully');
+        getBooks();
+      })
+      .catch((err) => {
+        console.log('err in container', err);
+      });
+  };
+
   // fetch data from backend to display on frontend
   const getBooks = () => {
     fetch('../api/books/', {
@@ -59,19 +76,18 @@ const BooksContainer = () => {
         }}
       >
         <TextField
-          id="outlined-basic"
           label="Title"
-          variant="outlined"
+          variant="filled"
           type="text"
           value={title}
           name="title"
           size="small"
+          autoComplete="off"
           onChange={(e) => setTitle(e.target.value)}
         />
         <TextField
-          id="outlined-basic"
           label="Author"
-          variant="outlined"
+          variant="filled"
           type="text"
           value={author}
           name="author"
@@ -86,7 +102,7 @@ const BooksContainer = () => {
           Add Book
         </Button>
       </Box>
-      <BookList books={books} />
+      <BookList books={books} deleteBook={deleteBook} />
     </div>
   );
 };
