@@ -8,7 +8,9 @@ const BookList = (props) => {
   const booksRender = [];
   for (let i = 0; i < books.length; i++) {
     // pass title down to bookItem to be displayed
-    booksRender.push(<BookItem key={i} title={books[i].title} />);
+    booksRender.push(
+      <BookItem key={i} title={books[i].title} bookDetails={books[i]} />
+    );
   }
 
   return <div id="bookList">{booksRender}</div>;

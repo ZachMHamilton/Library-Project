@@ -1,8 +1,8 @@
 import React from 'react';
 
 const BookItem = (props) => {
-  const { title } = props;
-
+  const { title, bookDetails } = props;
+  console.log(bookDetails);
   const popup = () => {
     window.alert(title);
   };
