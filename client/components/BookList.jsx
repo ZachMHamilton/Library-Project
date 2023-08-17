@@ -9,10 +9,11 @@ const BookList = (props) => {
   // apply to book
   const colors = [
     '#9A9EA1',
+    '#D3A6A1',
     '#605E5F',
-    '#8A7F7D',
     '#B29B89',
     '#ABB4AE',
+    '#453528',
     '#2C4838',
     '#BF9E99',
     '#8A7F7D',
@@ -43,7 +44,7 @@ const BookList = (props) => {
     booksRender.push(
       <div
         style={{
-          backgroundColor: colors[Math.floor(Math.random() * 25)],
+          backgroundColor: colors[i],
           borderRadius: '5px',
         }}
         key={i}

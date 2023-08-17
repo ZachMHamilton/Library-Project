@@ -8,8 +8,13 @@ const booksController = {};
 
 // WORKS
 booksController.getBooks = (req, res, next) => {
+  // add to bookDetails object
+  // get user from cookie
+  const user = req.cookies.USERssid;
+
   // get all user books from DB here
-  models.Book.find()
+  // find books by user = userssid
+  models.Book.find({user: user})
     .then((data) => {
       // add data to locals
       res.locals.books = data;
@@ -26,7 +31,10 @@ booksController.addBook = (req, res, next) => {
   // add book here
   // get details from locals obj
   const { bookDetails } = res.locals;
-
+  // get user
+  const user = req.cookies.USERssid;
+  // add to bookDetails object
+  bookDetails.user = user
   // create book in DB
   models.Book.create(bookDetails)
     .then((data) => {

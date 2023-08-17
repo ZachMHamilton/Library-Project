@@ -1,7 +1,8 @@
-const path = require('path');
 const express = require('express');
 const app = express();
+const path = require('path');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const bookRouter = require('./routes/bookRouter');
 const userRouter = require('./routes/userRouter');
 // const wishListRouter = require('./routes/wishListRouter');
@@ -23,7 +24,8 @@ mongoose
   .then(() => console.log('Connected to Mongo DB.'))
   .catch((err) => console.log(err));
 
-// use cors and json middleware
+// use cors, cookies, and json middleware
+app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 

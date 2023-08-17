@@ -11,8 +11,8 @@ cookieController.setSSIDCookie = (req, res, next) => {
       // if user exists
       if (obj) {
         // create cookie with their id
-        res.cookie('ssid', obj._id, { httpOnly: true });
-        // res.locals.id = obj._id;
+        res.cookie('USERssid', obj._id, { httpOnly: true });
+        res.locals.id = obj._id;
         return next();
       }
     })
