@@ -5,7 +5,7 @@ const PopUp = ({ open, close, title, bookDetails, deleteBook }) => {
   // var to store img of each book
   const img = bookDetails.imageLinks.smallThumbnail;
 
-  // Material UI modal
+  // Material UI
   return (
     <Modal open={open} onClose={close}>
       <Box
@@ -35,7 +35,7 @@ const PopUp = ({ open, close, title, bookDetails, deleteBook }) => {
         <p>Genre: {bookDetails.categories[0]}</p>
         <p>Page Count: {bookDetails.pageCount}</p>
         <div id="popupButtons">
-          <Button variant="outlined" onClick={close}>
+          <Button variant="contained" onClick={close}>
             Close
           </Button>
           <Button
