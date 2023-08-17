@@ -44,9 +44,11 @@ booksController.deleteBook = (req, res, next) => {
   // delete book here
   // get book from req.body
   const { title } = req.body;
+  console.log('title to delete: ', title);
   // to db - select book that matches book from body
   models.Book.deleteOne({ title: title })
     .then((data) => {
+      console.log('inside delete.then');
       return next();
     })
     .catch((err) => {
@@ -62,7 +64,6 @@ booksController.getDetails = (req, res, next) => {
 
   // build url using title and author
   const url = `https://www.googleapis.com/books/v1/volumes?q=intitle:"${title}"+inauthor:"${author}"&key=AIzaSyAXXHtUzz8RqMgLK-n-6qYqURB2X7c-rZM`;
-  
 
   // fetch from Google Books API
   fetch(url, {

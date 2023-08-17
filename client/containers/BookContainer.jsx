@@ -32,6 +32,7 @@ const BooksContainer = () => {
 
   // make delete request when delete button is clicked
   const deleteBook = (e) => {
+    console.log(title);
     fetch('../api/books', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
@@ -110,7 +111,7 @@ const BooksContainer = () => {
           Add Book
         </Button>
       </Box>
-      <BookList books={books} deleteBook={deleteBook} />
+      <BookList books={books} deleteBook={deleteBook} setTitle={setTitle} />
     </div>
   );
 };

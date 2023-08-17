@@ -24,6 +24,7 @@ router.post(
 
 // DELETE - allows user to delete a book
 router.delete('/', booksController.deleteBook, (req, res) => {
+  console.log('inside delete callback');
   return res.sendStatus(200);
 });
 

@@ -40,7 +40,7 @@ const PopUp = ({ open, close, title, bookDetails, deleteBook }) => {
           </Button>
           <Button
             variant="outlined"
-            onClick={(e) => deleteBook(e)}
+            onClick={() => deleteBook(title)}
             color="error"
           >
             Delete

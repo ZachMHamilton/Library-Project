@@ -3,7 +3,7 @@ import BookItem from './BookItem.jsx';
 
 const BookList = (props) => {
   // get books from props
-  const { books, deleteBook } = props;
+  const { books, deleteBook, setTitle } = props;
   // create array
   const booksRender = [];
   // create component for each book
@@ -15,6 +15,7 @@ const BookList = (props) => {
         title={books[i].title}
         bookDetails={books[i]}
         deleteBook={deleteBook}
+        setTitle={setTitle}
       />
     );
   }

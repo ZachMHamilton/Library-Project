@@ -3,7 +3,7 @@ import PopUp from './PopUp.jsx';
 
 const BookItem = (props) => {
   // destucture from props
-  const { title, bookDetails, deleteBook } = props;
+  const { title, bookDetails, deleteBook, setTitle } = props;
 
   // useState to toggle modal, false by default
   const [open, openModal] = useState(false);
@@ -11,6 +11,7 @@ const BookItem = (props) => {
   // handles clicks on each book and opens their modal
   const popup = () => {
     openModal(true);
+    setTitle(title);
   };
 
   // handles click on close button to close modal
