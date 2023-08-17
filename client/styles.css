@@ -14,6 +14,8 @@ body {
   justify-content: center;
   height: 100vh;
   background-image: url('./assets/room1.png');
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -62,6 +64,8 @@ body {
   align-items: center;
   height: 100vh;
   background-image: url('./assets/room1.png');
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
