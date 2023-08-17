@@ -1,4 +1,8 @@
-when user is created
-set user id
-when loading books pull user id
-search for their books
+need to update delete function to delete specific user's book
+
+
+look into OAuth
+
+
+
+clear textfields once signup submits

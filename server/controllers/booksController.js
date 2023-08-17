@@ -14,7 +14,7 @@ booksController.getBooks = (req, res, next) => {
 
   // get all user books from DB here
   // find books by user = userssid
-  models.Book.find({user: user})
+  models.Book.find({ user: user })
     .then((data) => {
       // add data to locals
       res.locals.books = data;
@@ -34,7 +34,7 @@ booksController.addBook = (req, res, next) => {
   // get user
   const user = req.cookies.USERssid;
   // add to bookDetails object
-  bookDetails.user = user
+  bookDetails.user = user;
   // create book in DB
   models.Book.create(bookDetails)
     .then((data) => {
@@ -52,9 +52,9 @@ booksController.deleteBook = (req, res, next) => {
   // delete book here
   // get book from req.body
   const { title } = req.body;
-  console.log('title to delete: ', title);
+  const user = req.cookies.USERssid;
   // to db - select book that matches book from body
-  models.Book.deleteOne({ title: title })
+  models.Book.deleteOne({ title: title, user: user })
     .then((data) => {
       console.log('inside delete.then');
       return next();
