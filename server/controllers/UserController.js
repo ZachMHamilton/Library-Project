@@ -12,6 +12,7 @@ userController.verifyUser = (req, res, next) => {
       if (!obj || password !== obj.password) {
         // something
         console.log('password does not match');
+        return next(err);
       } else {
         return next();
       }
@@ -27,6 +28,9 @@ userController.createUser = (req, res, next) => {
   const { username, password } = req.body;
   models.User.create(req.body)
     .then((data) => {
+      if (!username || !password) {
+        return next(err);
+      }
       return next();
     })
     .catch((err) => {

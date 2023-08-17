@@ -5,9 +5,11 @@ const Login = ({ logIn }) => {
   // create state vars
   const [username, setUser] = useState();
   const [password, setPassword] = useState();
+  const [message, setMessage] = useState('');
 
   // make post request when users log in
   const handleLogin = (e) => {
+    e.preventDefault();
     fetch('../api/users/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -18,11 +20,14 @@ const Login = ({ logIn }) => {
     })
       // modify state (in APP) to set isLoggedIn to true
       .then((response) => {
-        logIn(true);
+        if (response.ok) {
+          logIn(true);
+        } else {
+          setMessage('Username or password does not match. Try again!');
+        }
       })
       // errors
       .catch((err) => {
-        console.log('error logging in');
         console.log(err);
       });
   };
@@ -35,9 +40,15 @@ const Login = ({ logIn }) => {
         password,
       }),
     })
+      .then((response) => {
+        if (response.ok) {
+          setMessage('Successfully signed up!');
+        } else {
+          setMessage('Error signing up. Try again!');
+        }
+      })
       // errors
       .catch((err) => {
-        console.log('error logging in');
         console.log(err);
       });
   };
@@ -55,12 +66,24 @@ const Login = ({ logIn }) => {
       >
         Welcome To Shelved - Your Online Bookshelf!
       </h1>
+      <p
+        id="messageDiv"
+        style={{
+          position: 'absolute',
+          left: '50%',
+          top: '20%',
+          transform: 'translate(-50%, -50%)',
+          visibility: message ? 'visible' : 'hidden',
+        }}
+      >
+        {message}
+      </p>
       <Box
         component="form"
         sx={{
           border: '1px solid lightgrey',
           borderRadius: 2,
-          p: 5,
+          p: 3,
           position: 'absolute',
           top: '50%',
           left: '50%',
