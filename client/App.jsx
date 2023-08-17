@@ -10,8 +10,7 @@ import {
 
 const App = () => {
   // state to keep track of login
-  // const [isLoggedIn, logIn] = useState(false);
-  const isLoggedIn = true;
+  const [isLoggedIn, logIn] = useState(false);
 
   // react router
   // using conditional routing
@@ -35,7 +34,7 @@ const App = () => {
             path="/login"
             element={
               !isLoggedIn ? (
-                <Login logIn="logIn" />
+                <Login logIn={logIn} />
               ) : (
                 <Navigate replace to={'/'} />
               )

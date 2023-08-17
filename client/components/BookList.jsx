@@ -46,6 +46,7 @@ const BookList = (props) => {
           backgroundColor: colors[Math.floor(Math.random() * 25)],
           borderRadius: '5px',
         }}
+        key={i}
       >
         <BookItem
           key={i}

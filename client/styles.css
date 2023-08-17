@@ -36,7 +36,8 @@ body {
   background-image: url(./assets/bookshelf.jpeg);
   background-size: cover;
   border-radius: 5px;
-  row-gap: 22px;
+  column-gap: 2px;
+  row-gap: 24px;
   margin: 10px;
   height: 600px;
   padding: 21px;

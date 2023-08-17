@@ -26,6 +26,21 @@ const Login = ({ logIn }) => {
         console.log(err);
       });
   };
+  const handleSignup = (e) => {
+    fetch('../api/users/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+    })
+      // errors
+      .catch((err) => {
+        console.log('error logging in');
+        console.log(err);
+      });
+  };
 
   // Material UI
   return (
@@ -73,7 +88,7 @@ const Login = ({ logIn }) => {
             Sign In
           </Button>
           <Button
-            onClick={(e) => handleLogin(e)}
+            onClick={(e) => handleSignup(e)}
             variant="outlined"
             sx={{ mt: 3, mb: 2, width: 150 }}
           >
