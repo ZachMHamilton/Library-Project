@@ -46,15 +46,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid gray;
   border-radius: 5px;
   writing-mode: vertical-rl;
   text-align: center;
   width: 50.5px;
-  height: 118px;
+  height: 112px;
+  padding: 3px;
   margin: 0.6px;
   cursor: default;
-  background-color: white;
+  color: white;
 }
 
 #login {

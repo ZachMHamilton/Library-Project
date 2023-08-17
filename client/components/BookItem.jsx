@@ -19,6 +19,8 @@ const BookItem = (props) => {
     openModal(false);
   };
 
+
+
   // print title
   // pass down stuff on props
   return (
