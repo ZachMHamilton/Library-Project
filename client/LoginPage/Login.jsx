@@ -45,6 +45,16 @@ const Login = ({ logIn }) => {
   // Material UI
   return (
     <div id="login">
+      <h1
+        style={{
+          position: 'absolute',
+          left: '50%',
+          top: '10%',
+          transform: 'translate(-50%, -50%)',
+        }}
+      >
+        Welcome!
+      </h1>
       <Box
         component="form"
         sx={{
