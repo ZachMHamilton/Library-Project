@@ -8,7 +8,8 @@ const BooksContainer = ({ user }) => {
   const [author, setAuthor] = useState('');
   const [books, setBooks] = useState('');
 
-  console.log(user);
+  // capitalize first letter of user
+  const name = user[0].toUpperCase() + user.substring(1);
   // make post request when add book is created
   const handleClick = (e) => {
     e.preventDefault();
@@ -73,7 +74,7 @@ const BooksContainer = ({ user }) => {
   // Material UI form
   return (
     <div id="booksContainer">
-      <h2>My Library</h2>
+      <h2>{name}'s Library</h2>
       <Box
         component="form"
         sx={{
