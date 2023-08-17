@@ -53,7 +53,7 @@ const Login = ({ logIn }) => {
           transform: 'translate(-50%, -50%)',
         }}
       >
-        Welcome!
+        Welcome To Shelved - Your Online Bookshelf!
       </h1>
       <Box
         component="form"
@@ -69,6 +69,7 @@ const Login = ({ logIn }) => {
           flexDirection: 'column',
           gap: 2,
           bgcolor: 'white',
+          boxShadow: '0px 0px 10px 1px rgba(0, 0, 0, .4)',
         }}
       >
         <h2 style={{ textAlign: 'center' }}>LOGIN</h2>

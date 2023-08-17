@@ -56,7 +56,6 @@ booksController.deleteBook = (req, res, next) => {
   // to db - select book that matches book from body
   models.Book.deleteOne({ title: title, user: user })
     .then((data) => {
-      console.log('inside delete.then');
       return next();
     })
     .catch((err) => {

@@ -42,7 +42,6 @@ const BooksContainer = () => {
     })
       // call getBooks to update screen
       .then((response) => {
-        console.log('deleted successfully');
         getBooks();
       })
       // err
