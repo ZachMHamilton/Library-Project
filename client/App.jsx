@@ -11,6 +11,7 @@ import {
 const App = () => {
   // state to keep track of login
   const [isLoggedIn, logIn] = useState(false);
+  const [user, setUsername] = useState('');
 
   // react router
   // using conditional routing
@@ -24,7 +25,7 @@ const App = () => {
             path="/"
             element={
               isLoggedIn ? (
-                <MainContainer />
+                <MainContainer user={user} />
               ) : (
                 <Navigate replace to={'/login'} />
               )
@@ -34,7 +35,7 @@ const App = () => {
             path="/login"
             element={
               !isLoggedIn ? (
-                <Login logIn={logIn} />
+                <Login logIn={logIn} setUsername={setUsername} />
               ) : (
                 <Navigate replace to={'/'} />
               )

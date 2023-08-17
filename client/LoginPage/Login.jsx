@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Box, Button } from '@mui/material';
 
-const Login = ({ logIn }) => {
+const Login = ({ logIn, setUsername }) => {
   // create state vars
   const [username, setUser] = useState();
   const [password, setPassword] = useState();
@@ -21,6 +21,7 @@ const Login = ({ logIn }) => {
       // modify state (in APP) to set isLoggedIn to true
       .then((response) => {
         if (response.ok) {
+          setUsername(username);
           logIn(true);
         } else {
           setMessage('Username or password does not match. Try again!');

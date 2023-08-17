@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import BookList from '../components/BookList.jsx';
 import { TextField, Box, Button } from '@mui/material';
 
-const BooksContainer = () => {
+const BooksContainer = ({ user }) => {
   // create state variables
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [books, setBooks] = useState('');
 
+  console.log(user);
   // make post request when add book is created
   const handleClick = (e) => {
     e.preventDefault();
