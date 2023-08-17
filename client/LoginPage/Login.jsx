@@ -27,7 +27,7 @@ const Login = ({ logIn }) => {
       });
   };
 
-  // Material UI form
+  // Material UI
   return (
     <div id="login">
       <Box

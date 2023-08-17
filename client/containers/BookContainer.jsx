@@ -86,17 +86,16 @@ const BooksContainer = () => {
       >
         <TextField
           label="Title"
-          variant="filled"
+          variant="standard"
           type="text"
           value={title}
           name="title"
           size="small"
-          autoComplete="off"
           onChange={(e) => setTitle(e.target.value)}
         />
         <TextField
           label="Author"
-          variant="filled"
+          variant="standard"
           type="text"
           value={author}
           name="author"

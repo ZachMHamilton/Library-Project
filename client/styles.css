@@ -36,10 +36,10 @@ body {
   background-image: url(./assets/bookshelf.jpeg);
   background-size: cover;
   border-radius: 5px;
-  row-gap: 20px;
+  row-gap: 22px;
   margin: 10px;
   height: 600px;
-  padding: 20px;
+  padding: 21px;
 }
 
 #book {
@@ -52,7 +52,7 @@ body {
   text-align: center;
   width: 50.5px;
   height: 118px;
-  margin: 0.5px;
+  margin: 0.6px;
   cursor: default;
   background-color: white;
 }
