@@ -92,3 +92,9 @@ body {
   gap: 10px;
   justify-content: center;
 }
+
+#logout {
+  position: absolute;
+  top: 2%;
+  left: 96%;
+}

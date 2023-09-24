@@ -25,7 +25,7 @@ const App = () => {
             path="/"
             element={
               isLoggedIn ? (
-                <MainContainer user={user} />
+                <MainContainer user={user} logIn={logIn} />
               ) : (
                 <Navigate replace to={'/login'} />
               )

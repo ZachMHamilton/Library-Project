@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import BookList from '../components/BookList.jsx';
-import { TextField, Box, Button } from '@mui/material';
+import { TextField, Box, Button, IconButton, Tooltip } from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
 
-const BooksContainer = ({ user }) => {
+const BooksContainer = ({ user, logIn }) => {
   // create state variables
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -74,6 +75,19 @@ const BooksContainer = ({ user }) => {
   // Material UI form
   return (
     <div id="booksContainer">
+      <div id="logout">
+        <Tooltip title="Logout">
+          <IconButton
+            size="small"
+            sx={{
+              width: '2em',
+            }}
+            onClick={() => logIn(false)}
+          >
+            <LogoutIcon />
+          </IconButton>
+        </Tooltip>
+      </div>
       <h2>{name}'s Library</h2>
       <Box
         component="form"
