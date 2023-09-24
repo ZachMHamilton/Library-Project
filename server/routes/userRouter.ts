@@ -1,6 +1,7 @@
 const express = require('express');
+import { Request, Response } from "express";
 
-const userController = require('../controllers/userController');
+const userController = require('../controllers/userController.ts');
 const cookieController = require('../controllers/cookieController');
 
 const router = express.Router();
@@ -10,12 +11,12 @@ router.post(
   '/login',
   userController.verifyUser,
   cookieController.setSSIDCookie,
-  (req, res) => {
+  (req: Request, res: Response) => {
     return res.sendStatus(200);
   }
 );
 
-router.post('/signup', userController.createUser, (req, res) => {
+router.post('/signup', userController.createUser, (req: Request, res: Response) => {
   return res.sendStatus(200);
 });
 

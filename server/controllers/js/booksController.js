@@ -1,5 +1,5 @@
 // require DB here
-const models = require('../models/booksModel');
+const models = require('../../models/booksModel');
 
 const booksController = {};
 

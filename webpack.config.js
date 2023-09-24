@@ -24,11 +24,26 @@ module.exports = {
         ],
       },
       {
+        test: /\.tsx?/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+            },
+          },
+        ],
+      },
+      {
         test: [/\.s[ac]ss$/i, /\.css$/i],
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
   // tells devServer WHAT to serve
   plugins: [
